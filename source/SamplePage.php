@@ -9,9 +9,8 @@
 
     $result = curl_exec ($curl);
     curl_close ($curl);
+    $result = substr_replace($result, "", -1);
     print $result;
-$newresult = substr_replace($result, "", -1);
-print $newresult;
 ?>
   
   </h1>
