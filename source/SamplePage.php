@@ -1,7 +1,19 @@
 <?php include "../inc/dbinfo.inc"; ?>
 <html>
 <body>
-<h1>Sample page</h1>
+  <h1>Region: 
+  <?php
+    $curl = curl_init();
+    curl_setopt ($curl, CURLOPT_URL, "http://169.254.169.254/latest/meta-data/placement/availability-zone");
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+    $result = curl_exec ($curl);
+    curl_close ($curl);
+    print $result;
+?>
+  
+  </h1>
+<h2>Sample page</h2>
 <?php
   /* Connect to MySQL and select the database. */
   $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
