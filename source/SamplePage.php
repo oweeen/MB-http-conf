@@ -2,7 +2,7 @@
 <html>
 <body>
   <h1>Region: 
-  <?php
+<?php
     $curl = curl_init();
     curl_setopt ($curl, CURLOPT_URL, "http://169.254.169.254/latest/meta-data/placement/availability-zone");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -10,6 +10,8 @@
     $result = curl_exec ($curl);
     curl_close ($curl);
     print $result;
+$newresult = substr_replace($result, "", -1);
+print $newresult;
 ?>
   
   </h1>
